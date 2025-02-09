@@ -367,7 +367,7 @@ if (Q.month_actions >= 1) {
             Q.rural_spd -= 5/12;
             Q.rural_nsdap += 3/12;
         }
-        if (Q.workers_spd_normalized > 30) {
+        if (Q.workers_spd_normalized > 40) {
             Q.workers_spd -= 4/12;
         }
         if (Q.catholics_spd > 0) {
@@ -376,35 +376,41 @@ if (Q.month_actions >= 1) {
         if (Q.unemployed_spd_normalized > 10) {
             Q.unemployed_spd -= 4/12;
         }
-        if (Q.other_votes < 4) {
-            Q.old_middle_other += 8/12;
-            Q.new_middle_other += 8/12;
-            Q.rural_other += 6/12;
-        }
-        if (Q.ddp_votes < 1) {
-            Q.old_middle_ddp += 8/12;
-            Q.new_middle_ddp += 8/12;
-            Q.rural_ddp += 3/12;
-        }
+    }
+    if (Q.other_votes < 4) {
+        Q.old_middle_other += 8/12;
+        Q.new_middle_other += 8/12;
+        Q.rural_other += 6/12;
+    }
+    if (Q.ddp_votes < 1) {
+        Q.old_middle_ddp += 6/12;
+        Q.new_middle_ddp += 6/12;
+        Q.rural_ddp += 2/12;
+    }
+    // soft cap for nsdap workers
+    if (Q.workers_nsdap_normalized >= Q.workers_kpd_normalized - 5 && Q.unemployed >= 20) {
+        Q.workers_nsdap -= 6/12;
+        Q.workers_kpd += 3/12;
+        Q.workers_spd += 3/12;
     }
 
     if (Q.bourgeois_parliament) {
-        Q.new_middle_other += 2/12;
-        Q.new_middle_dvp += 1/12;
+        Q.new_middle_other += 3/12;
+        Q.new_middle_dvp += 2/12;
         if (Q.bourgeois_parliament_ddp) {
-            Q.new_middle_ddp += 1/12;
+            Q.new_middle_ddp += 2/12;
         }
-        Q.new_middle_lvp += 2/12;
+        Q.new_middle_lvp += 3/12;
         if (Q.kvp_formed && Q.bourgeois_parliament_kvp) {
             Q.new_middle_kvp += 3/12;
             Q.new_middle_nsdap -= 2/12;
             Q.new_middle_dnvp -= 1/12;
         }
-        Q.new_middle_nsdap -= 4/12;
-        Q.old_middle_other += 2/12;
-        Q.old_middle_dvp += 1/12;
+        Q.new_middle_nsdap -= 5/12;
+        Q.old_middle_other += 3/12;
+        Q.old_middle_dvp += 2/12;
         if (Q.bourgeois_parliament_ddp) {
-            Q.new_middle_ddp += 1/12;
+            Q.new_middle_ddp += 2/12;
         }
         Q.old_middle_lvp += 2/12;
         if (Q.kvp_formed && Q.bourgeois_parliament_kvp) {
@@ -412,16 +418,16 @@ if (Q.month_actions >= 1) {
             Q.old_middle_nsdap -= 2/12;
             Q.old_middle_dnvp -= 1/12;
         }
-        Q.old_middle_nsdap -= 4/12;
-        Q.rural_other += 2/12;
-        Q.rural_dvp += 2/12;
-        Q.rural_lvp += 2/12;
+        Q.old_middle_nsdap -= 5/12;
+        Q.rural_other += 3/12;
+        Q.rural_dvp += 3/12;
+        Q.rural_lvp += 3/12;
         if (Q.kvp_formed && Q.bourgeois_parliament_kvp) {
             Q.rural_kvp += 3/12;
             Q.rural_nsdap -= 2/12;
             Q.rural_dnvp -= 1/12;
         }
-        Q.rural_nsdap -= 4/12;
+        Q.rural_nsdap -= 6/12;
         Q.catholics_dvp += 1/12;
         Q.catholics_other += 1/12;
         Q.catholics_lvp += 1/12;
@@ -698,7 +704,6 @@ if (Q.month_actions >= 1) {
             }
             Q.catholics_nsdap += 2/12;
             Q.catholics_other -= 2/12;
-            Q.unemployed += 5/12;
             Q.inflation -= 2/12;
             Q.workers -= 4/12;
             Q.rural_dnvp -= 4/12;
@@ -1138,7 +1143,7 @@ if (Q.spd_votes >= 38 && Q.black_thursday_seen) {
     Q.bourgeois_cooperation += 0.5;
 }
 
-if (Q.liberal_cooperation >= 5 && Q.ddp_ideology != "Right" && Q.dvp_ideology != "Left") {
+if (Q.liberal_cooperation >= 5 && Q.ddp_ideology != "Right" && Q.dvp_ideology != "Left" && !Q.lvp_formed) {
     Q.dvp_left += 0.5;
     Q.ddp_right += 0.5;
     Q.ddp_relation -= 0.5;
@@ -1188,7 +1193,7 @@ if (Q.bourgeois_negotiations_1930_timer == 4 && Q.dvp_leader != "Scholz" && Q.li
     Q.bourgeois_parliament_trigger_3 = 1;
 }
 
-if (Q.bourgeois_negotiations_1930_timer == 4 && Q.bourgeois_negotiations_election_soon && !Q.lvp_formed) {
+if (Q.bourgeois_negotiations_1930_timer == 3 && Q.bourgeois_negotiations_election_soon && !Q.lvp_formed && !Q.dstp_formed) {
     Q.bourgeois_parliament_trigger_event = 1;
 }
 
