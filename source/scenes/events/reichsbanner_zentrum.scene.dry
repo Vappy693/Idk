@@ -1,6 +1,7 @@
 title: Exodus from the Reichsbanner
 subtitle: Owing to its militarization, the <span style="color: #000000;">Center Party</span> and <span style="color: #D3C24D;">**[+ ddp_name +]**</span> are leaving the Reichsbanner.
 view-if: rb_militancy >= 0.2 and not rb_exit and not rb_stay
+on-arrival: weimar_dissent += 2 if weimar_plan_adopted
 new-page: true
 tags: event
 face-image: img/reichsbanner_flag.jpg
@@ -22,7 +23,7 @@ We have judged that the Reichsbanner's militancy is more important than maintain
 
 
 @lower_militancy
-on-arrival: rb_militancy *= 0.5
+on-arrival: rb_militancy *= 0.5; weimar_dissent -= 2
 
 Bowing to the other parties' demands, we reduce the Reichsbanner's military training, thus inducing them to stay.
 
