@@ -66,7 +66,7 @@ on-arrival: budget -= wtb_budget; coalition_dissent += 1 if (in_grand_coalition 
 go-to: let_it_happen if in_grand_coalition and dvp_ideology == "Right" and not lvp_formed; let_it_happen if in_weimar_coalition or in_grand_coalition and lvp_ideology == "Right" and lvp_formed
 achievement: wirtschaftspolitik
 
-We have started to enact the WTB plan. Money is beginning to flow through the economy via investments in large-scale public works. The bourgeois parties express concerns about inflation and spending, preferring tax cuts to address the economic crisis. However, they begrudgingly accept our plan, reassured by the surplus we’ve built up. [? if in_grand_coalition and dvp_ideology == "Right" and not lvp_formed or in_grand_coalition and lvp_ideology == "Right" and lvp_formed: except for the <span style="color: #C0A054;">**right liberals**</span> in our coalition, who immediately call a vote of no confidence. They refuse to be persuaded otherwise. ?]
+We have started to enact the WTB plan. Money is beginning to flow through the economy via investments in large-scale public works. The bourgeois parties express concerns about inflation and spending, preferring tax cuts to address the economic crisis. However, they begrudgingly accept our plan, reassured by the surplus we’ve built up.
 
 [? if in_popular_front or in_left_front: The <span style="color: #700000;">**KPD**</span> opposes the WTB plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]
 
@@ -78,7 +78,7 @@ go-to: let_it_happen_hindenburg if president != "Braun"; let_it_happen_braun if 
 on-arrival: chancellor = "Brüning"; chancellor_party = "Z"; welfare -= 2; bruning_event_timer = 6 if not bruning_event_seen and year >= 1930
 go-to: elections if bruning_event_seen or year < 1930
 
-The vote succeeds, and our government has resigned. Chancellor Brüning has been appointed as the head of a new cabinet, consisting solely of the bourgeois parties. He immediately proceeds to cut welfare spending substantially.
+However, the #C0A054;">**right liberals**</span> in our coalition cannot be persuaded by anything. They call a vote of no confidence and our government has resigned. Chancellor Brüning has been appointed as the head of a new cabinet, consisting solely of the bourgeois parties. He immediately proceeds to cut welfare spending substantially.
 
 [? if not bruning_event_seen and year >= 1930: New elections haven't been called yet but it's likely that they will be soon, considering Brüning most likely doesn't have the majority of the Reichstag behind him. ?]
 
@@ -91,7 +91,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 on-arrival: spd_caretaker = 1
 call: set_next_election_time
 
-The vote succeeds, and our government has resigned. Chancellor [+ chancellor +] remains as the head of a caretaker government, but no longer has the power to enact new policies.
+However, the #C0A054;">**right liberals**</span> in our coalition cannot be persuaded by anything. They call a vote of no confidence and our government has resigned. Chancellor [+ chancellor +] remains as the head of a caretaker government, but no longer has the power to enact new policies.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
