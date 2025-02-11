@@ -37,7 +37,7 @@ go_to: @negotiations_succeed
 @Braun_pressure
 view-if: chancellor = "Braun"
 choose-if: (z_relations >= 65)
-unavailable-subtitle: [? if z_relations < 65: They are not willing to be convinced]
+unavailable-subtitle: [? if z_relations < 65: They are not willing to be convinced ?]
 go_to: @negotiations_succeed 
 
 @Tried
