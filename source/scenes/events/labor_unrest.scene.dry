@@ -16,22 +16,53 @@ The mining and metals industry of the Ruhr region is beset by a wave of strikes 
 
 @support_labor
 subtitle: We don't own the Labor Ministry.
+go-to: @negotiations if (z_relations >= 75 and in weimar_coalition and z_ideology = "Left" and coalition_dissent <= 2) @support_labor_failed if (z_relations <= 75 or in grand_coalition or z_ideology != "Left" coalition_dissent > 2)
+
+@support_labor_failed
 on-arrival: labor_dissent += 5; left_dissent += 5; workers_spd -= 4; coalition_dissent += 1; dvp_relation -= 4; ddp_relation -= 2; lvp_relation -= 3; kpd_relation -= 4; workers_kpd += 3; capital_strike_progress += 1 if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; dvp_right += 1; ddp_left += 0.5; ddp_cohesion -= 1; lvp_right += 1; goal_spd_cancel += 1; pro_labor -= 1; economic_growth -= 0.2
 
-Unfortunately, Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) overrules our decision and sided with the employers instead.
+Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) was in the process of negotiating a compromise, which has been sabotaged by our agitation. He casts his lot in with the employers instead.
 
-Many workers are unhappy at the government's decision, and our concession of the Labor Ministry to the bourgeois parties. There is deep bitterness developing against the <span style="color: #c00000;">**SPD**</span>, especially among the more radical workers. The <span style="color: #700000;">**Communists**</span> stand to gain.
+The blame for this episode is placed on our incompetent intervention, and serves as a bitter reminder to workers of our concession of the Labor Ministry to the bourgeois parties. There is deep resentment developing against the <span style="color: #c00000;">**SPD**</span>, especially among the more radical workers. The <span style="color: #700000;">**Communists**</span> stand to gain.
+
+@negotiations
+
+Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) was in the process of negotiating a compromise, and is deeply annoyed by our aggitation. However, with him and the newly elected <span style="color: #000000;">Center Party</span> leader Joseph Joos both being trade unionists, and Joos desire to maintain coalition with the spd, perhaps they can be convinced to see reason?
+
+- @resources: use party resources to convince our allies
+- @Braun_pressure: Have chancellor Braun pressure them into agreeing
+- @Tried: At least we tried.
+
+@resources
+choose-if: (resources >= 2)
+unavailable-subtitle: [? if resources < 2: We do not have enough resources. ?]
+on-arrival: resources -= 2;
+go_to: @negotiations_succeed 
+
+@Braun_pressure
+view-if: chancellor = "Braun";
+go_to: @negotiations_succeed 
+
+@Tried
+go_to: @support_labor_failed
+
+@negotiations_succeed 
+on-arrival: labor_strength += 5; labor_dissent -= 5; left_dissent -= 5; workers_spd += 6*(1-dissent); coalition_dissent += 1; dvp_relation -= 4; z_relation -= 8; capital_strike_progress += 1 if dvp_relation <= 30; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; goal_spd_cancel_peoples += 1; if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; labor_goal_completed += 1; inflation += 0.1; economic_growth -= 0.2
+
+After tense negotiations with the <span style="color: #000000;">Center Party</span>
 
 @support_employers
-subtitle: This will alienate the workers.
+choose-if: in grand_coalition
+subtitle: in order to appease the coalition, we will give Stegerwald free reign.
+unavailable-subtitle: Stegerwald's and his party want a fair compromise. He'd be confused if we were the ones urging him to the employeers side.
 on-arrival: labor_dissent += 8; left_dissent += 8; workers_spd -= 6; coalition_dissent -= 1; dvp_relation += 5; z_relation += 5; ddp_relation += 4; lvp_relation += 5; coalition_dissent -= 1; workers_kpd += 5; kpd_coalition_dissent += 1; kpd_relation -= 8; capital_strike_progress -= 1 if capital_strike_progress > 1; capital_strike_progress -= 1 if capital_strike_progress > 8; dvp_left += 1; ddp_right += 0.5; lvp_left += 0.5; ddp_cohesion -= 1; goal_spd_cancel += 1; labor_goal_spd_peoples += 1; pro_labor -= 1
 
-Even though most workers grudgingly accept the our intervention, there is deep bitterness developing against the <span style="color: #c00000;">**SPD**</span>, especially among the more radical workers. The <span style="color: #700000;">**Communists**</span> stand to gain.
+Seeking to appease the <span style="color: #C0A054;">**DVP**</span>, Stegerwald puts down the strikes. there is deep bitterness developing against the <span style="color: #c00000;">**SPD**</span> for letting this happen, especially among the more radical workers. The <span style="color: #700000;">**Communists**</span> stand to gain.
 
 @balance
-subtitle: Both sides need to share the pain in the current crisis.
+subtitle: This is Stegerwalds perfered solution to labor disputes
 on-arrival: labor_dissent += 4; workers_spd -= 1; kpd_coalition_dissent += 1; kpd_relation -= 5; workers_kpd += 1; ddp_cohesion += 1; ddp_relation += 4; labor_goal_spd_peoples += 1
 
-We manage to convince Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) to strike a compromise between both sides.
+Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) negotiates a compromise between both sides. We will assist him in doing so.
 
 Many workers are unhappy at our compromises, but they will learn to accept that we are all in a shared struggle against economic forces. This is perhaps the best we could do given the present circumstances.
