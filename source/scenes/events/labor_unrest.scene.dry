@@ -31,7 +31,7 @@ Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span
 subtitle: -2 resources
 choose-if: (resources >= 2 and z_relations >= 75)
 unavailable-subtitle: [? if resources < 2: We do not have enough resources. ?] [? if z_relations < 75: They are not willing to be convinced]
-on-arrival: resources -= 2;
+on-arrival: resources -= 2
 go_to: @negotiations_succeed 
 
 @Braun_pressure
