@@ -672,6 +672,15 @@ Q.womens_rights_timer = 0;
 Q.homosexual_rights_timer = 0;
 Q.economic_democracy_timer = 0;
 Q.coalition_affairs_timer = 0;
+Q.weimar_enacting_timer = 0;
+Q.referendum_timer = 0;
+Q.land_referendum_timer = 0;
+Q.nationalization_referendum_timer = 0;
+Q.wtb_referendum_timer = 0;
+Q.council_referendum_timer = 0;
+Q.abortion_referendum_timer = 0;
+Q.buyer_referendum_timer = 0;
+Q.council_development_timer = 0;
 // event timers
 Q.emergency_cuts_timer = 0;
 Q.unemployment_insurance_timer = 0;
