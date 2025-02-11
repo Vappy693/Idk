@@ -49,7 +49,7 @@ go_to: @support_labor_failed
 @negotiations_succeed 
 on-arrival: labor_strength += 5; labor_dissent -= 5; left_dissent -= 5; workers_spd += 6*(1-dissent); coalition_dissent += 1; z_relation -= 4; dvp_relation -= 4; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; goal_spd_cancel_peoples += 1; capital_strike_progress += 1 if dvp_relation <= 30; capital_strike_progress += 1 if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; labor_goal_completed += 1; inflation += 0.1; economic_growth -= 0.2
 
-After tense negotiations with the <span style="color: #000000;">Center Party</span>, They have agreed to support labor in their demands. However, many in the <span style="color: #000000;">Center Party</span> are deeply annoyed by our meddling in the affairs of a ministry we ceded to them, and will less inclined to give many more concessions.
+After tense negotiations with the <span style="color: #000000;">Center Party</span>, They have agreed to support labor in their demands. However, many in the <span style="color: #000000;">Center Party</span> are deeply annoyed by our meddling in the affairs of a ministry we ceded to them, and will less inclined to give more concessions in the future.
 
 @support_employers
 choose-if: grand_coalition
@@ -63,6 +63,6 @@ Seeking to appease the <span style="color: #C0A054;">**DVP**</span>, Stegerwald 
 subtitle: This is Stegerwalds perfered solution to labor disputes
 on-arrival: labor_dissent += 4; workers_spd -= 1; kpd_coalition_dissent += 1; kpd_relation -= 5; workers_kpd += 1; ddp_cohesion += 1; ddp_relation += 4; labor_goal_spd_peoples += 1
 
-Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) negotiates a compromise between both sides. We will assist him in doing so.
+Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) negotiates a compromise between both sides. We have assisted him in doing so.
 
 Many workers are unhappy at our compromises, but they will learn to accept that we are all in a shared struggle against economic forces. This is perhaps the best we could do given the present circumstances.
