@@ -29,15 +29,15 @@ Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span
 
 @resources
 subtitle: -2 resources
-choose-if: (resources >= 2 and z_relations >= 75)
+choose-if: (resources >= 2 and z_relations >= 70)
 on-arrival: resources -= 2
-unavailable-subtitle: [? if resources < 2: We do not have enough resources. ?] [? if z_relations < 75: They are not willing to be convinced ?]
+unavailable-subtitle: [? if resources < 2: We do not have enough resources. ?] [? if z_relations < 70: They are not willing to be convinced ?]
 go-to: negotiations_succeed 
 
 @Braun_pressure
 view-if: chancellor = "Braun"
-choose-if: (z_relations >= 65)
-unavailable-subtitle: [? if z_relations < 65: They are not willing to be convinced ?]
+choose-if: (z_relations >= 60)
+unavailable-subtitle: [? if z_relations < 60: They are not willing to be convinced ?]
 go-to: negotiations_succeed 
 
 @Tried
