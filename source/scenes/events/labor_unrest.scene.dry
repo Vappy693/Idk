@@ -40,7 +40,7 @@ on-arrival: resources -= 2;
 go_to: @negotiations_succeed 
 
 @Braun_pressure
-view-if: chancellor = "Braun";
+view-if: chancellor = "Braun"
 go_to: @negotiations_succeed 
 
 @Tried
