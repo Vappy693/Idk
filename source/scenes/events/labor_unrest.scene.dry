@@ -16,7 +16,7 @@ The mining and metals industry of the Ruhr region is beset by a wave of strikes 
 
 @support_labor
 subtitle: We don't own the Labor Ministry.
-go-to: @negotiations if (z_relations >= 70 and z_leader == "Joos" and in_weimar_coalition); @support_labor_failed
+go-to: @support_labor_failed if (in_grand_coalition or z_leader != "Joos"); @negotiations
 
 @negotiations
 on-arrival: z_relation -= 2
