@@ -21,7 +21,7 @@ go-to: support_labor_failed if (in_grand_coalition or z_leader != "Joos"); negot
 @negotiations
 on-arrival: z_relation -= 2
 
-Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) was in the process of negotiating a compromise, and is deeply annoyed by our aggitation. However, with him and the newly elected <span style="color: #000000;">Center Party</span> leader Joseph Joos both being trade unionists, and Joos desire to maintain a coalition with the spd, perhaps they can be convinced to see reason?
+Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) was in the process of negotiating a compromise, and is deeply annoyed by our aggitation. However, with him and the newly elected <span style="color: #000000;">Center Party</span> leader Joseph Joos both being trade unionists, and Joos desire to maintain a coalition with us, perhaps they can be convinced to see reason?
 
 - @resources: use party resources to convince the Zentrum
 - @Braun_pressure: Have chancellor Braun pressure them into agreeing
