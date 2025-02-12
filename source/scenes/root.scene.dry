@@ -732,6 +732,7 @@ Q.bourgeois_parliament_ddp = 0;
 Q.bourgeois_parliament_kvp = 0;
 Q.dvp_congress_trigger = 0;
 Q.liberal_parliament_seen = 0;
+Q.center_party_conference_seen = 0;
 Q.dvp_reform = 0;
 Q.bourgeois_cooperation = 0;
 Q.ui1_compromise = 0;
