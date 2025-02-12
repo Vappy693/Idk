@@ -21,7 +21,7 @@ go-to: support_labor_failed if (in_grand_coalition or z_leader != "Joos"); negot
 @negotiations
 on-arrival: z_relation -= 2
 
-Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) was in the process of negotiating a compromise, and is deeply annoyed by our aggitation. However, with him and the newly elected <span style="color: #000000;">Center Party</span> leader Joseph Joos both being trade unionists, and Joos desire to maintain a coalition with us, perhaps they can be convinced to see reason?
+Labor Minister [+ labor_minister +] (**<span style="color: #000000;">**Z**</span>**) was in the process of negotiating a compromise, and is deeply annoyed by our aggitation. However, with him and the newly elected <span style="color: #000000;">Center Party</span> leader Joseph Joos both being trade unionists, and Joos desire to maintain a coalition with us, perhaps they can be convinced to reconsider?
 
 - @resources: use party resources to convince the Zentrum
 - @Braun_pressure: Have chancellor Braun pressure them into agreeing
@@ -44,9 +44,9 @@ go-to: negotiations_succeed
 go-to: support_labor_failed
 
 @negotiations_succeed 
-on-arrival: labor_strength += 5; labor_dissent -= 5; left_dissent -= 5; workers_spd += 6*(1-dissent); coalition_dissent += 1; z_relation -= 8; dvp_relation -= 4; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; goal_spd_cancel_peoples += 1; capital_strike_progress += 1 if dvp_relation <= 30; capital_strike_progress += 1 if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; labor_goal_completed += 1; inflation += 0.1; economic_growth -= 0.2
+on-arrival: labor_strength += 5; labor_dissent -= 5; left_dissent -= 5; workers_spd += 5*(1-dissent); workers_z += 1; coalition_dissent += 1; z_relation -= 8; dvp_relation -= 4; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; goal_spd_cancel_peoples += 1; capital_strike_progress += 1 if dvp_relation <= 30; capital_strike_progress += 1 if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; labor_goal_completed += 1; inflation += 0.1; economic_growth -= 0.2
 
-Thanks to our negotiations with the <span style="color: #000000;">Center Party</span>, They have agreed to support labor in their demands. However, many in the <span style="color: #000000;">Center Party</span> are annoyed by our meddling in the affairs of a ministry we ceded to them.
+Thanks to our negotiations with the <span style="color: #000000;">Center Party</span> and Joos, Stegerwald has agreed to support labor in their demands. However, many in the <span style="color: #000000;">Center Party</span> are annoyed by our meddling in the affairs of a ministry we ceded to them.
 
 @support_labor_failed
 on-arrival: labor_dissent += 5; left_dissent += 5; workers_spd -= 4; coalition_dissent += 1; dvp_relation -= 4; ddp_relation -= 2; lvp_relation -= 3; kpd_relation -= 4; workers_kpd += 3; capital_strike_progress += 1 if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; dvp_right += 1; ddp_left += 0.5; ddp_cohesion -= 1; lvp_right += 1; goal_spd_cancel += 1; pro_labor -= 1; economic_growth -= 0.2
