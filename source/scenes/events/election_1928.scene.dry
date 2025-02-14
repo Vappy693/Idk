@@ -1868,15 +1868,17 @@ Müller's appointment as chancellor is approved by all our potential allies.
 title: Otto Wels for Chancellor
 view-if: muller_dead = 1
 subtitle: Otto Wels is a party leader, but can he also be chancellor?
-on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0; leverage += 5 if (in_grand_coalition_prussia and in_grand_coalition)
+on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; Guleph_toleration = 0; in_grand_coalition = 1 if in_weimar_coalition == 0; leverage += 5 if (in_grand_coalition_prussia and in_grand_coalition)
 go-to: ministries
 
 Otto Wels's appointment as chancellor is approved by our potential allies.
 
 @braun
 title: Otto Braun for Chancellor
+choose-if: Guleph_toleration = 0
 view-if: not historical_mode or not prussia_leader = "Braun"
 subtitle: Braun is currently the Minister-President of Prussia, and is one of our most popular leaders. However, other parties may have qualms about concentrating too much power in one man.
+unavailable-subtitle: The Gulephs wouldn't tolerate this, their bitterness to the state of Prussia makes this unworkable. 
 
 The <span style="color: #000000;">Center Party</span> has significant qualms about appointing Braun as chancellor, given that he is already Minister-President of Prussia. They ask for either more cabinet positions, or for Braun to resign his state government role. The latter is completely unacceptable.
 
@@ -1887,7 +1889,7 @@ The <span style="color: #000000;">Center Party</span> has significant qualms abo
 @braun_2
 subtitle: Otto Braun will be Chancellor.
 view-if: not historical_mode
-on-arrival: spd_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD"; leverage -= 10; in_grand_coalition = 1 if in_weimar_coalition == 0; leverage += 5 if (in_grand_coalition_prussia and in_grand_coalition); hindenburg_angry += 10
+on-arrival: spd_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD"; Guleph_toleration = 0; leverage -= 10; in_grand_coalition = 1 if in_weimar_coalition == 0; leverage += 5 if (in_grand_coalition_prussia and in_grand_coalition); hindenburg_angry += 10
 go-to: ministries
 
 We have promised to let the <span style="color: #000000;">Center</span> have more influence in the government in response to the appointment of Braun as chancellor.
@@ -1896,7 +1898,7 @@ We have promised to let the <span style="color: #000000;">Center</span> have mor
 @z_chancellor
 title: Let the <span style="color: #000000;">Center Party</span> have their chancellor.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; z_relation += 10; dvp_relation += 5; ddp_relation += 5; lvp_relation += 5; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 1; lvp_left += 1; hindenburg_angry -= 10
+on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; z_relation += 10; dvp_relation += 5; ddp_relation += 5; lvp_relation += 5; Guleph_toleration = 0; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 1; lvp_left += 1; hindenburg_angry -= 10
 go-to: ministries
 
 This is highly unexpected, and many in the left and center of our party are criticizing this decision.
@@ -1908,7 +1910,7 @@ This is highly unexpected, and many in the left and center of our party are crit
 title: Let Joseph Wirth of the <span style="color: #000000;">Center Party</span> be chancellor.
 view-if: z_ideology == "Left"
 subtitle: Wirth is on the left wing of the <span style="color: #000000;">Center Party</span>. This may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 5; ddp_relation += 5; lvp_relation += 5; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5; dvp_left += 0.5; ddp_left += 0.5; ddp_cohesion += 1.5; lvp_left += 1; hindenburg_angry -= 10
+on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 5; ddp_relation += 5; lvp_relation += 5; kpd_relation -= 5; Guleph_toleration = 0; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5; dvp_left += 0.5; ddp_left += 0.5; ddp_cohesion += 1.5; lvp_left += 1; hindenburg_angry -= 10
 go-to: ministries
 
 
@@ -1944,7 +1946,7 @@ go-to: no_govt_2
 
 
 @no_govt_2
-on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; spd_in_government = 0; grand_coalition_failed = 1
+on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; Guleph_toleration = 0; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; spd_in_government = 0; grand_coalition_failed = 1
 go-to: right_coalition_post_spd if right_coalition >= 50 and ((dnvp_ideology == "Moderate" or dnvp_leader == "Westarp") and not (year = 1929 and month >= 7)) and president != "Braun"; new_elections_spd if right_coalition < 50 or (right_coalition >= 50 and ((dnvp_ideology == "Radical" and dnvp_leader != "Westarp") or (year = 1929 and month >= 7))) and president != "Braun"; brauns_dilemma if president == "Braun"
 
 
